@@ -82,6 +82,30 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
 
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+<link rel="stylesheet" href="css/github-activity.css">
+
+<script src="//code.jquery.com/jquery-1.11.0.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+<script type="text/javascript" src="js/github-activity.js"></script>
+
+<script>
+  function updateFeed(username) {
+    GitHubActivity.feed({ username: username, selector: '#feed' });
+  }
+
+  $(document).ready(function() {
+    updateFeed('faridiot');
+
+    $('#update').click(function() { updateFeed($("#username").val()); });
+    $("#username").keypress(function(e) {
+      if (e.which === 13) {
+        updateFeed($("#username").val());
+      }
+    });
+  });
+</script>
+
 </head>
 <body class="home page page-id-7 page-template page-template-page-templatesone-page-php wpb-js-composer js-comp-ver-4.3.4 vc_responsive">
     <div id="container" class="container">
@@ -91,11 +115,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
             <a href="#menu1" class="menu-link"></a>
                             <nav id="menu1" role="navigation">
                     <ul><li id="menu-item-83" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-83"><a class="pluton-menu" title="About" href="#chapterabout"><span id="link_about">Profile</span></a></li>
-<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a class="pluton-menu" title="My Skills" href="#chaptermy-skills"><span id="link_my-skills">Color.code</span></a></li>
+<li id="menu-item-84" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-84"><a class="pluton-menu" title="My Skills" href="#chaptermy-skills"><span id="link_my-skills">Color Code</span></a></li>
 <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-145"><a class="pluton-menu" title="Experience" href="#chapterexperience"><span id="link_experience">Repositories</span></a></li>
 <li id="menu-item-146" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-146"><a class="pluton-menu" title="Education" href="#chaptereducation"><span id="link_education">Playlist</span></a></li>
-<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a class="pluton-menu" title="Portfolio" href="#chapterportfolio"><span id="link_portfolio">Articles</span></a></li>
-<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a class="pluton-menu" title="Contact" href="#chaptercontact"><span id="link_contact">Contact</span></a></li>
+<li id="menu-item-147" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-147"><a class="pluton-menu" title="Portfolio" href="#chapterportfolio"><span id="link_portfolio">Public Activity</span></a></li>
+<li id="menu-item-148" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-148"><a class="pluton-menu" title="Contact" href="#chaptercontact"><span id="link_contact">Articles</span></a></li>
 <li id="menu-item-151" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-151"><a title="Blog" href="../">Maps</a></li>
 </ul>                                    </nav>
             
@@ -135,7 +159,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 		</div> 
 	</div> 
 </div>
-</div></article><article class="content page-half my-skills white-bg page-half" id="chaptermy-skills"><div class="inner "><div class="page-title"><h2>Color.Code</h2><div class="title-divider"></div></div><div id="pluton-999" class="wpb_row vc_row-fluid  " style="">
+</div></article><article class="content page-half my-skills white-bg page-half" id="chaptermy-skills"><div class="inner "><div class="page-title"><h2>Color Code</h2><div class="title-divider"></div></div><div id="pluton-999" class="wpb_row vc_row-fluid  " style="">
 	<div class="vc_col-sm-12 wpb_column vc_column_container">
 		<div class="wpb_wrapper">
 						<div class="the-title">
@@ -334,17 +358,39 @@ Email farid@designer.web.id
 		</div> 
 	</div> 
 </div>
-</div></article><article class="content page-half portfolio white-bg page-half" id="chapterportfolio"><div class="inner "><div class="page-title"><h2>Articles</h2><div class="title-divider"></div></div><div id="pluton-202" class="wpb_row vc_row-fluid  container" style="">
+</div></article><article class="content page-half portfolio white-bg page-half" id="chapterportfolio"><div class="inner "><div class="page-title"><h2>Public Activity</h2><div class="title-divider"></div></div><div id="pluton-202" class="wpb_row vc_row-fluid  container" style="">
 	<div class="vc_col-sm-12 wpb_column vc_column_container">
 		<div class="wpb_wrapper">
 						<div class="the-title">
+                            
 							<h3>Graphic Design & Responsive Web</h3>
 							<p>IDWEBDesigner (Indonesia Web Designer) adalah desainer grafis dan desainer web responsif dari Yogyakarta, Indonesia. Bekerja professional membuat web cepat disemua perangkat, desktop maupun perangkat mobile.</p>
 				        </div>
 					<div class="portfolio-con">
             	<div class="container-sub margin-top50">
               		<div class="row">
-                		<div id="grid-gallery" class="grid-gallery">
+                		<div id="feed" style="height: 1000px; width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+		
+		</div> 
+	</div> 
+</div>
+</div></article><article class="content page-half contact white-bg page-half" id="chaptercontact"><div class="inner "><div class="page-title"><h2>Articles</h2><div class="title-divider"></div></div><div id="pluton-811" class="wpb_row vc_row-fluid  container" style="">
+	<div class="vc_col-sm-12 wpb_column vc_column_container">
+		<div class="wpb_wrapper">
+						<div class="the-title">
+									<h3>Graphic Design & Responsive Web</h3>
+													<p>IDWEBDesigner (Indonesia Web Designer) adalah desainer grafis dan desainer web responsif dari Yogyakarta, Indonesia. Bekerja professional membuat web cepat disemua perangkat, desktop maupun perangkat mobile.</p>
+				            </div>
+		<div class="full-divider" style="margin-top:50"></div>
+
+		</div> 
+	</div> 
+</div>
+                <div id="pluton-359" class="wpb_row vc_row-fluid  container" style="">
+	<div class="vc_col-sm-12 wpb_column vc_column_container">
 
 <div class="post-114 post type-post status-publish format-image has-post-thumbnail hentry category-blog blog-list blog-style-grid">
     <div class="blog-img">
@@ -397,70 +443,14 @@ Email farid@designer.web.id
 	<a href="https://twitter.com/IDWEBDesigner" target="_blank"><i class="fa fa-twitter fa-lg"></i>IDWEBDesigner</a>
 </div>            </div>
 </div>
-                    	</div>
-                    </div>
-                </div>
-            </div>
-		
-		</div> 
 	</div> 
 </div>
-</div></article><article class="content page-half contact white-bg page-half" id="chaptercontact"><div class="inner "><div class="page-title"><h2>Contact</h2><div class="title-divider"></div></div><div id="pluton-811" class="wpb_row vc_row-fluid  container" style="">
-	<div class="vc_col-sm-12 wpb_column vc_column_container">
-		<div class="wpb_wrapper">
-						<div class="the-title">
-									<h3>Let's Keep In Touch</h3>
-													<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit.</p>
-				            </div>
-		<div class="full-divider" style="margin-top:50"></div>
-		</div> 
-	</div> 
-</div><div id="pluton-359" class="wpb_row vc_row-fluid  container" style="">
-	<div class="vc_col-sm-6 wpb_column vc_column_container">
-		<div class="wpb_wrapper">
-			<div style="clear:both; width:100%; height:35px"></div>			<div class="contact-text contact-details">
-              	<div class="col-2 icon-block address"><i class="fa fa-map-marker"></i></div>
-              	<div class="flot-left">
-					              			<strong>Andrew Smith</strong><br>
-					                	PO Box 16122 Collins Street West, Victoria 8007, United States.                </div>
-            </div>
-					<div class="contact-text contact-details">
-              	<div class="col-2 icon-block address"><i class="fa fa-phone"></i></div>
-              	<div class="flot-left">
-					              			<strong>Phone</strong><br>
-					                	+123-456-789                </div>
-            </div>
-					<div class="contact-text contact-details">
-              	<div class="col-2 icon-block address"><i class="fa fa-envelope"></i></div>
-              	<div class="flot-left">
-					              			<strong>Email</strong><br>
-					                	no-reply@domain.com                </div>
-            </div>
-		
-		</div> 
-	</div> 
-
-	<div class="vc_col-sm-6 wpb_column vc_column_container">
-		<div class="wpb_wrapper">
-						<div class="the-title">
-									<h3>I'm also on Social Networks</h3>
-								            </div>
-					<div class="contact-social margin-top30">
-															<a href="http://facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
-																				<a href="http://twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
-																				<a href="http://youtube.com/" target="_blank"><i class="fa fa-youtube"></i></a>
-																				<a href="https://plus.google.com/" target="_blank"><i class="fa fa-google-plus"></i></a>
-																				<a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
-																																																						            </div>
-		
-		</div> 
-	</div> 
-</div><div id="pluton-773" class="wpb_row vc_row-fluid  " style="">
+                <div id="pluton-773" class="wpb_row vc_row-fluid  " style="">
 	<div class="vc_col-sm-12 wpb_column vc_column_container">
 		<div class="wpb_wrapper">
 			<div style="clear:both; width:100%; height:0px"></div><div class="full-divider" style="margin-top:50"></div>				
             <div class="contact-form">
-											<h3>Drop Me a Line</h3>
+											<h6>Drop Me a Line</h6>
 										<div class="wpcf7" id="wpcf7-f6-p7-o1" lang="en-US" dir="ltr">
 <div class="screen-reader-response"></div>
 </div>				</div>
