@@ -590,6 +590,7 @@ a.totop-link {
 	-o-background-size: cover;
 	background-size: cover;*/
 	position:relative;
+    background: #FFB400;
 }
 .introduction img {
 	/*position: absolute;*/
