@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/light-theme.css"/>
     <link rel="stylesheet" href="css/mediaqueries.css"/>
     <link rel="stylesheet" href="css/responsivegallery.css"/>
+    <link rel="stylesheet" href="css/colorpicker.css"/>
 
     <!-- // Primary Javascript // -->
 
@@ -141,7 +142,7 @@
                                 </li>
                                 <li>
                                     <a href="../playlist.html"><i class="fa  fa-music"></i> Music Playlist</a>
-                                </li>    
+                                </li>  
                             </ul>
                         </nav><!-- End .sidebar-nav-v1 --> 
              		</div><!-- End .sidebar-module -->                                     
@@ -304,7 +305,7 @@
                             <div class="module-placeholder sidebar">
                                 <ul class="ext-tabs-sidebar">
                                     <li class="active">
-                                        <a href="#sidebar-tab-1x"><i class="fa fa-html5"></i> HTML5</a>
+                                        <a href="#sidebar-tab-1x"><i class="fa fa-html5"></i> Colorpicker</a>
                                     </li>
                                     <li>
                                         <a href="#sidebar-tab-2x"><i class="fa fa-twitter"></i> Sosial</a>
@@ -313,17 +314,16 @@
                                 <div class="tab-content">
                                     <div id="sidebar-tab-1x" class="tab-pane active clearfix">
                                         <div class="inner-padding">
-                                            <nav class="sidebar-nav-v2"> 
-                                IDWEBDesigner Project</br></br>
-                                <ul>
-                                    <li><a href="http://ekspedisicandi.com"><i class="fa fa-pagelines"></i> yogyakarta<medium class="text-muted">.designer.web.id</medium></a></li>
-                                    <li><a href="http://ekspedisicandi.com"><i class="fa fa-pagelines"></i> coreldraw<medium class="text-muted">.designer.web.id</medium></a></li>
-                                    <li><a href="http://ekspedisicandi.com"><i class="fa fa-pagelines"></i> 2015<medium class="text-muted">.designer.web.id</medium></a></li>
-                                    <li><a href="http://ekspedisicandi.com"><i class="fa fa-pagelines"></i> dev<medium class="text-muted">.designer.web.id</medium></a></li>
-                                </ul>
+                                            <nav class="sidebar-nav-v2">
+                                                
+                                                <div class="spacer-10"></div>
+                                                <div id="colorpickerHolder"></div>
+                                                <script src="js/colorpicker.js"></script><br/>
+                                                <input type='color' name='color'/>
                                             </nav>
                                         </div>
                                     </div>
+
                                     <div id="sidebar-tab-2x" class="tab-pane clearfix">
                                         <div class="inner-padding">
                                             <nav class="sidebar-nav-v2">
@@ -346,21 +346,15 @@
                                             </nav>
                                         </div>
                                     </div>
-                                </div><!-- End .tab-content -->               
+
+                                    
+                                </div><!-- End .tab-content -->       
+                                   
                             </div><!-- End .module-placeholder -->
 
-                            <div class="sidebar-module">
-                <h3>
-                	Daftar Twitter sekarang
-                    <br/>
-                    <small class="text-muted">Mulai percakapan dan ikuti tweet faridiot</small>
-                </h3>
-                                <div class="spacer-10"></div>
-                                <div class="btn-count">
-                                	<span>180k</span>
-                                	<a href="http://twitter.com/faridiot" class="btn  btn-default"><i class="fa fa-twitter"></i>&nbsp; Pengikut</a>
-                                </div>
-                            </div> 
+                            <img src="images/AngularJS.png" width="130px" hspace="20">
+
+            
             
         </aside><!-- End aside --> 
 
