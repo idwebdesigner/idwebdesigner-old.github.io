@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
 <!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
 <!--[if IE 8]>     <html class="ie ie8 lte9 lte8 no-js">      <![endif]-->
@@ -20,7 +20,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="HandheldFriendly" content="true"/>   
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" /> 
 
     <!-- // Stylesheets // -->
     
@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/light-theme.css"/>
     <link rel="stylesheet" href="css/mediaqueries.css"/>
     <link rel="stylesheet" href="css/responsivegallery.css"/>
+    <link rel="stylesheet" href="css/colorpicker.css"/>
 
     <!-- // Primary Javascript // -->
 
@@ -304,7 +305,7 @@
                             <div class="module-placeholder sidebar">
                                 <ul class="ext-tabs-sidebar">
                                     <li class="active">
-                                        <a href="#sidebar-tab-1x"><i class="fa fa-html5"></i> Supports</a>
+                                        <a href="#sidebar-tab-1x"><i class="fa fa-html5"></i> Colorpicker</a>
                                     </li>
                                     <li>
                                         <a href="#sidebar-tab-2x"><i class="fa fa-phone"></i> Contact</a>
@@ -314,42 +315,11 @@
                                     <div id="sidebar-tab-1x" class="tab-pane active clearfix">
                                         <div class="inner-padding">
                                             <nav class="sidebar-nav-v2">
-                                                <img src="images/service.jpg" width="100%">
+                                                
                                                 <div class="spacer-10"></div>
-                                                <h4>IDWEBDesigner Yogyakarta</h4>
-                                                <div class="spacer-20"></div>
-                                                    <div class="dropup">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            Phone / Whatsapp 
-                                                            <i class="fa fa-comment"></i>
-                                                        </a>
-                                                        <div role="menu" class="dropdown-menu ext-dropdown-box">
-                                    	                    <div class="inner-padding">
-                                    		                    <h5>Dropdown with text</h5>
-                                                                <p>
-                                                                Lorem <u>ipsum dolor</u> sit amet, consectetur adipiscing elit. Proin eget faucibus ligula. 
-                                                                In in velit eros, nec <strong>convallis leo</strong>. Quisque sollicitudin, dolor sit amet semper porttitor, 
-                                                                telu <mark>nisl dignissim</mark> tortor, 
-                                                                </p>
-                                                            </div>    
-                                                        </div>
-                                                    </div>
-                                                    <div class="dropup">
-                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                                            Alamat
-                                                            <i class="fa fa-comment"></i>
-                                                        </a>
-                                                        <div role="menu" class="dropdown-menu ext-dropdown-box">
-                                    	                    <div class="inner-padding">
-                                    		                    <h5>ADropdown with text</h5>
-                                                                <p>
-                                                                Lorem <u>ipsum dolor</u> sit amet, consectetur adipiscing elit. Proin eget faucibus ligula. 
-                                                                In in velit eros, nec <strong>convallis leo</strong>. Quisque sollicitudin, dolor sit amet semper porttitor, 
-                                                                telu <mark>nisl dignissim</mark> tortor, 
-                                                                </p>
-                                                            </div>    
-                                                        </div>
-                                                    </div>
+                                                <div id="colorpickerHolder"></div>
+                                                <script src="js/colorpicker.js"></script><br/>
+                                                <input type='color' name='color'/>
                                             </nav>
                                         </div>
                                     </div>
