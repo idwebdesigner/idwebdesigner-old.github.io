@@ -312,7 +312,7 @@ hr{
 .dropup,
 .dropdown{
 	float   : left;
-	margin  : 0 10px 10px 0;
+	margin  : -5px -17px;
 	padding : 0!important;
 }
 .dropdown-toggle > img{
@@ -422,6 +422,7 @@ li.dropdown,
 }
 .dropup .dropdown-menu{
 	bottom : 31px;
+    left: 15px;
 }
 .btn-group.open .btn.dropdown-toggle{
 	box-shadow         : none;
