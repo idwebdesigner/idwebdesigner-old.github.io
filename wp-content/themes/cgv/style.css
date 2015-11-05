@@ -653,9 +653,9 @@ textarea {
 }
 .company .right #coMountain {
 	background:url(images/co-mountain.png) repeat-x;
-	height:82px;
+	height:165px;
 	position:absolute;
-	top:290px;
+	top:220px;
 	display:block;
 	width:100%;
 	z-index:5;
