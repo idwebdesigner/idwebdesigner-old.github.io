@@ -1,222 +1,1192 @@
 <!DOCTYPE html>
-<html >
-  <head>
-    <meta charset="UTF-8">
-    <title>IDWEBDesigner</title>
-      <link rel="shortcut icon" href="images/favicon.ico" />
+<!--[if lt IE 7]>  <html class="ie ie6 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 7]>     <html class="ie ie7 lte9 lte8 lte7 no-js"> <![endif]-->
+<!--[if IE 8]>     <html class="ie ie8 lte9 lte8 no-js">      <![endif]-->
+<!--[if IE 9]>     <html class="ie ie9 lte9 no-js">           <![endif]-->
+<!--[if gt IE 9]>  <html class="no-js">                       <![endif]-->
+<!--[if !IE]><!--> <html class="no-js">                       <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>IDWEBDesigner Yogyakarta</title>
     
+	<meta name="description" content="IDWEBDesigner - Indonesia Web Designer, Yogyakarta, Indonesia." />
+	<meta name="keywords" content="Indonesia Web Designer, IDWEBDesigner, Yogyakarta Web Designer, desainer web responsif, Yogyakarta, Indonesia, Jogja +F Labs Experiments, web, intuitif, efek, animasi, full screen, mobile browser, sederhana, standar web modern, HTML5, CSS3, jQuery, dan Javascript, original, futuristik" />
+    <link rel="shortcut icon" href="images/favicon.ico" />
     
+    <!-- // Handheld devices misc // -->
     
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="true"/>   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- // Stylesheets // -->
     
-        <style>
-      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
-      body {
-  background: #efefef;
-}
+    <link rel="stylesheet" href="bootstrap/core/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="bootstrap/select2/select2.css"/>
+    <link rel="stylesheet" href="bootstrap/datepicker/css/datepicker.css"/>
+    <link rel="stylesheet" href="bootstrap/fileupload/bootstrap-fileupload.min.css"/>
+    <link rel="stylesheet" href="bootstrap/typeahead/typeahead.min.css"/>
+    <link rel="stylesheet" href="bootstrap/colorpicker/css/colorpicker.css"/>
+    <link rel="stylesheet" href="bootstrap/timepicker/css/bootstrap-timepicker.min.css"/>
+    <link rel="stylesheet" href="fontawesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap-custom.css"/>
+    <link rel="stylesheet" href="css/bootstrap-extended.css"/>
+    <link rel="stylesheet" href="css/animate.min.css"/>
+    <link rel="stylesheet" href="css/helpers.css"/>
+    <link rel="stylesheet" href="css/base.min.css"/>
+    <link rel="stylesheet" href="css/light-theme.css"/>
+    <link rel="stylesheet" href="css/mediaqueries.css"/>
+    <link rel="stylesheet" href="css/responsivegallery.css"/>
 
-.preloader {
-  position: absolute;
-  margin-left: -55px;
-  margin-top: -100px;
-  height: 110px;
-  width: 110px;
-  left: 50%;
-  top: 50%;
-}
+    <!-- // Primary Javascript // -->
 
-svg {
-  width: 110px;
-  height: 110px;
-}
+    <script src="js/countup/datetime.js"></script>
 
-path {
-  stroke: #9ea1a4;
-  stroke-width: 0.25;
-  fill: #241E20;
-}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
+    <link rel="stylesheet" href="css/github-activity.css">
 
-#cloud {
-  position: relative;
-  z-index: 2;
-}
+    <script src="//code.jquery.com/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js"></script>
+    <script type="text/javascript" src="js/github-activity.js"></script>
 
-#cloud path {
-  fill: #efefef;
-}
+    <script>
+      function updateFeed(username) {
+        GitHubActivity.feed({ username: username, selector: '#feed' });
+      }
 
-#sun {
-  margin-left: -10px;
-  margin-top: 6px;
-  opacity: 0;
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  left: 45px;
-  top: 15px;
-  z-index: 1;
-  animation-name: rotate;
-  animation-duration: 16000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-}
+      $(document).ready(function() {
+        updateFeed('faridiot');
 
-#sun path {
-  stroke-width: 0.18;
-  fill: #9ea1a4;
-}
+        $('#update').click(function() { updateFeed($("#username").val()); });
+        $("#username").keypress(function(e) {
+          if (e.which === 13) {
+            updateFeed($("#username").val());
+          }
+        });
+      });
+    </script>
 
-@keyframes rotate {
-  0% {
-    transform: rotateZ(0deg);
-  }
-  100% {
-    transform: rotateZ(360deg);
-  }
-}
-/* Rain */
-.rain {
-  position: absolute;
-  width: 70px;
-  height: 70px;
-  margin-top: -32px;
-  margin-left: 19px;
-}
+</head>
+<body> 
+	<div id="container" class="clearfix">
 
-.drop {
-  opacity: 1;
-  background: #9ea1a4;
-  display: block;
-  float: left;
-  width: 3px;
-  height: 10px;
-  margin-left: 4px;
-  border-radius: 0px 0px 6px 6px;
-  animation-name: drop;
-  animation-duration: 350ms;
-  animation-iteration-count: infinite;
-}
+    <!-- ******************************************** 
+         * SIDEBAR MAIN:                            *
+         *                                          *
+         * the part which contains the main         *
+         * navigation, logo, search and more...     *
+         * (parts can be in both sidebars).         *
+         ******************************************** -->
+                   
+		<aside id="sidebar-main" class="sidebar">
+            
+        	<div class="sidebar-logo">
+            	<a href="../" id="logo-big"><h1>IDWEBDesigner</h1><h2>/ Yogyakarta</h2></a>
+            </div><!-- End .sidebar-logo -->
 
-.drop:nth-child(1) {
-  animation-delay: -130ms;
-}
+            <!-- ********** -->
+            <!-- NEW MODULE -->
+            <!-- ********** -->
+                    
+            <div class="sidebar-module"> 
+                <div class="sidebar-profile">
+                    <img src="images/icon.idwebdesigner.jpg" alt="" class="avatar"/>
+                    <ul class="sidebar-profile-list">
+                        <li><h3>Graphics Design</h3></li>
+                        <li><h6>Responsive Web</h6></li>
+                    </ul>
+                </div><!-- End .sidebar-profile -->
+            </div><!-- End .sidebar-module --> 
+                    
+            <div class="sidebar-line"><!-- A seperator line --></div>
+            
+            <!-- * Tabs can be removed, if so dont forget * -->
+            <!-- * to remove the .tab-pane divs(wrapper). * -->
+             
+            <ul class="ext-tabs-sidebar">
+                <li class="active">
+                    <a href="#sidebar-tab-1"><i class="fa fa-bars"></i> Menu</a>
+                </li>
+                <li>
+                    <a href="#sidebar-tab-2"><i class="fa  fa-bar-chart-o"></i> Statistik</a>
+                </li>            
+            </ul><!-- End .ext-tabs-sidebar -->
+            <div class="tab-content">
+                <div id="sidebar-tab-1" class="tab-pane active clearfix">
+                
+                    <!-- ********** -->
+                    <!-- NEW MODULE -->
+                    <!-- ********** -->
+                    
+                    <div class="sidebar-module"> 
+                        <nav class="sidebar-nav-v2">                         
+                            <ul>
+                                <li class="page-arrow active-page">
+                                    <a href="../"><i class="fa fa-home"></i> Homepage <span class="indicator-pill">new</span></a>
+                                </li>
+                                <li>
+                                    <a href="../new.html"><i class="fa  fa-plus"></i> Create New Project</a>
+                                </li>
+                                <li>
+                                    <a href="../database.html"><i class="fa fa-sort-alpha-asc"></i> Database Javascript</a>
+                                </li>
+                                <li>
+                                    <a href="../color.html"><i class="fa  fa-font"></i> HTML Color Code</a>
+                                </li>
+                                <li>
+                                    <a href="../coreldraw.html"><i class="fa  fa-pencil"></i> CorelDRAW Indonesia</a>
+                                </li>
+                                <li>
+                                    <a href="../playlist.html"><i class="fa  fa-music"></i> Music Playlist</a>
+                                </li>  
+                            </ul>
+                        </nav><!-- End .sidebar-nav-v1 --> 
+             		</div><!-- End .sidebar-module -->                                     
+                </div>                
+            	<div id="sidebar-tab-2" class="tab-pane clearfix">
+                
+                    <!-- ********** -->
+                    <!-- NEW MODULE -->
+                    <!-- ********** -->
+	                        
+                    <div class="sidebar-module"> 
+                    	  <div class="statistic-block">
+                                    <header>
+                                        <div class="pull-left">
+                                            Sales
+                                        </div>
+                                        <div class="pull-right">
+                                            <a href="#" class="btn"><i class="fa fa-cog"></i></a>
+                                        </div>
+                                    </header>
+                                    <div class="statistic-block-inner">
+                                        <div class="pull-left">
+                                            <div class="statistic-block-bigval">$9568</div>
+                                            <div class="statistic-block-smalltext pull-right">Total</div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <span class="label label-success">+ 240%<i class="fa fa-caret-up pull-right"></i></span>
+                                        </div>
+                                        <span class="line"></span>
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="statistic-block-smallval pull-right">1904</div>
+                                                <div class="statistic-block-smalltext pull-right">Orders</div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="statistic-block-smallval pull-right">255</div>
+                                                <div class="statistic-block-smalltext pull-right">Sales</div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="statistic-block-smallval pull-right">2889</div>
+                                                <div class="statistic-block-smalltext pull-right">Clients</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End .statistic-block -->
+                        <div class="spacer-20"></div>
+                        <div class="statistic-block">
+                                    <header>
+                                        <div class="pull-left">
+                                            Clicks
+                                        </div>
+                                        <div class="pull-right">
+                                            <span class="label label-danger">- 176%<i class="fa fa-caret-down pull-right"></i></span>
+                                        </div>
+                                    </header>
+                                    <div class="statistic-block-inner">
+                                        <div class="pull-left">
+                                            <div class="statistic-block-bigval">9599</div>
+                                            <div class="statistic-block-smalltext pull-right">Social</div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <div class="statistic-block-bigval">6712</div>
+                                            <div class="statistic-block-smalltext pull-right">Google</div>
+                                        </div>
+                                        <span class="line"></span>
+                                        <div class="bar-meter">
+                                            <div>
+                                                <span style="height:30%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:17%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:56%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:44%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:100%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:39%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:25%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:55%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:74%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:12%;"></span>
+                                            </div>
+                                            <div>
+                                                <span style="height:74%;"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End .statistic-block -->
+                        <div class="spacer-20"></div>
+                        <div class="statistic-block">
+                                    <header>
+                                        <div class="pull-left">
+                                            <i class="fa fa-comments"></i> Comments
+                                        </div>
+                                        <div class="pull-right">
+                                            <span class="label label-warning">+ 57%</span>
+                                        </div>
+                                    </header>
+                                    <div class="statistic-block-inner">
+                                        <div class="pull-left">
+                                            <div class="bar-meter">
+                                                <div>
+                                                    <span style="height:55%;"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="height:74%;"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="height:12%;"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="height:74%;"></span>
+                                                </div>
+                                                <div>
+                                                    <span style="height:22%;"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="pull-right">
+                                            <div class="statistic-block-bigval">547710</div>
+                                            <div class="statistic-block-smalltext pull-right">Total</div>
+                                        </div>
+                                        <span class="line"></span>
+                                        <div class="row">
+                                            <div class="col-sm-6">
+                                                <div class="statistic-block-smallval pull-right">12040</div>
+                                                <div class="statistic-block-smalltext pull-right">Pending</div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="statistic-block-smallval pull-right">40009</div>
+                                                <div class="statistic-block-smalltext pull-right">Aproven</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- End .statistic-block -->
+                    </div><!-- End .sidebar-module -->
+                </div>
+            </div><!-- End .tab-content -->
+            
 
-.drop:nth-child(2) {
-  animation-delay: -240ms;
-}
+            
+            <!-- ********** -->
+            <!-- NEW MODULE -->
+            <!-- ********** -->
+                    
+                            <div class="module-placeholder sidebar">
+                                <ul class="ext-tabs-sidebar">
+                                    <li class="active">
+                                        <a href="#sidebar-tab-1x"><i class="fa fa-phone"></i> Supports</a>
+                                    </li>
+                                    <li>
+                                        <a href="#sidebar-tab-2x"><i class="fa fa-map-marker"></i> Address</a>
+                                    </li>            
+                                </ul><!-- End .ext-tabs-sidebar -->
+                                <div class="tab-content">
+                                    <div id="sidebar-tab-1x" class="tab-pane active clearfix">
+                                        <div class="inner-padding">
+                                            <nav class="sidebar-nav-v2">
+                                                <img src="images/service.jpg" width="100%">
+                                                <div class="spacer-10"></div>
+                                                <h5>IDWEBDesigner Yogyakarta Technical Supports</h5>
+                                                <div class="spacer-20"></div>
+                                                    <div class="dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            Email 
+                                                            <i class="fa fa-envelope-o"></i>
+                                                        </a>
+                                                        <div role="menu" class="dropdown-menu ext-dropdown-box">
+                                    	                    <div class="inner-padding">
+                                    		                    <h5>Email</h5>
+                                                                <p>support@designer.web.id</p>
+                                                            </div>    
+                                                        </div>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            Phone / Whatsapp
+                                                            <i class="fa fa-comment"></i>
+                                                        </a>
+                                                        <div role="menu" class="dropdown-menu ext-dropdown-box">
+                                    	                    <div class="inner-padding">
+                                    		                    <h5>Phone / Whatsapp</h5>
+                                                                <p>081392541831</p>
+                                                            </div>    
+                                                        </div>
+                                                    </div>
+                                                    <br/>
+                                                    <div class="dropup">
+                                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                                            Live Chat
+                                                            <i class="fa fa-comments-o"></i>
+                                                        </a>
+                                                        <div role="menu" class="dropdown-menu ext-dropdown-box">
+                                    	                    <div class="inner-padding">
+                                    		                    <h5>Phone / Whatsapp</h5>
+                                                                <p>081392541831</p>
+                                                            </div>    
+                                                        </div>
+                                                    </div>
+                                            </nav>
+                                        </div>
+                                    </div>
 
-.drop:nth-child(3) {
-  animation-delay: -390ms;
-}
+                                    <div id="sidebar-tab-2x" class="tab-pane clearfix">
+                                        <div class="inner-padding">
+                                            <nav class="sidebar-nav-v2">
+                                                <h4>IDWEBDesigner Yogyakarta</h4>
+                                                <div class="spacer-20"></div>
+                                                <medium>Jl. Wahid Hasyim No. 3 Gaten, Condongcatur, Depok, Sleman, Yogyakarta 55283</medium>
+                                            </nav>
+                                        </div>
+                                    </div>
 
-.drop:nth-child(4) {
-  animation-delay: -525ms;
-}
+                                    
+                                </div><!-- End .tab-content -->       
+                                   
+                            </div><!-- End .module-placeholder -->
+                                
 
-.drop:nth-child(5) {
-  animation-delay: -640ms;
-}
+            <div style="padding-left:20px" id="MyLiveChatContainer"></div>
+            <script type="text/javascript" defer="defer" src="https://www.mylivechat.com/chatbutton.aspx?hccid=52799426"></script>
+            <div class="spacer-20"></div>
+            <div style="padding-left:20px"><a href="http://githubpreview.designer.web.id"><i class="fa fa-github"></i> Github Preview</a></div>
+            
+        </aside><!-- End aside --> 
 
-.drop:nth-child(6) {
-  animation-delay: -790ms;
-}
+		<!-- ********************************************
+             * SIDEBAR SEC:                             *
+             *                                          *
+             * the part which contains things like      *
+             * calendar, users, lists, blocks and       *
+             * much more.                               *
+             ******************************************** -->
+        
+        <div id="sidebar-sec" class="sidebar"> 
+         
+        	<div class="sidebar-sec-top"></div> 
+                  
+            <!-- ********** -->
+            <!-- NEW MODULE -->
+            <!-- ********** -->
+                    
+            <div class="sidebar-module">               
+                <form class="input-group">
+                    <input type="text" name="" class="form-control" placeholder="Pencarian..." id="typeahead-sidebar-search"/>
+                    <div class="input-group-btn">
+                    	<!-- can NOT be used with typeahead
+                        <a href="#" class="clear-input"><i class="fa fa-times-circle"></i></a>
+                        -->
+                        <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </div><!-- End .sidebar-module -->  
+            
+            <div class="sidebar-line"><!-- A seperator line --></div>
 
-.drop:nth-child(7) {
-  animation-delay: -900ms;
-}
+            <!-- * Tabs can be removed, if so dont forget * -->
+            <!-- * to remove the .tab-pane divs(wrapper). * -->
+             
+            <ul class="ext-tabs-sidebar">
+                <li class="active">
+                    <a href="#sidebar-tab-3"><i class="fa fa-github"></i> Github</a>
+                </li>
+                <li>
+                    <a href="#sidebar-tab-4"><i class="fa fa-check-square-o"></i> Todos</a>
+                </li>            
+            </ul><!-- End .ext-tabs-sidebar -->
+            <div class="tab-content">
+                <div id="sidebar-tab-3" class="tab-pane active">
 
-.drop:nth-child(8) {
-  animation-delay: -1050ms;
-}
+                    <!-- ********** -->
+                    <!-- NEW MODULE -->
+                    <!-- ********** -->
+                            
+                    <div class="sidebar-module">                     
+                        <ul class="mini-list">
+                            <li>
+                                <img src="images/icons/Codrops.jfif" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/codrops" class="bold">Codrops</a></li>
+                                    <li><a href="http://www.codrops.com">codrops.com</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Google.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/google" class="bold">Google</a></li>
+                                    <li><a href="http://developers.google.com">developers.google.com</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Angular.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/angular" class="bold">Angular</a></li>
+                                    <li><a href="http://angularjs.org">angularjs.org</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Adobe.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/adobe" class="bold">Adobe Systems Incorporated</a></li>
+                                    <li><a href="http://www.adobe.com/open-source.html">adobe.com/open-source</a></li>
+                                </ul>
+                            </li>                        
+                            <li>
+                                <img src="images/icons/Adobe Web Platform.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/adobe-webplatform" class="bold">Adobe Web Platform</a></li>
+                                    <li><a href="http://webplatform.adobe.com">webplatform.adobe.com</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/CodyHouse.jfif" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/CodyHouse" class="bold">CodyHouse</a></li>
+                                    <li><a href="http://codyhouse.co">codyhouse.co</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Bootstrap.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/twbs" class="bold">Bootstrap</a></li>
+                                    <li><a href="http://getbootstrap.com">getbootstrap.com</a></li>
+                                </ul>
+                            </li>                                                                                                
+                            <li>
+							<img src="images/icons/GoogleChrome.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/GoogleChrome" class="bold">GoogleChrome</a></li>
+                                    <li><a href="https://github.com/GoogleChrome">github.com/GoogleChrome</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Mozilla.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/mozilla" class="bold">Mozilla</a></li>
+                                    <li><a href="https://github.com/mozilla">github.com/mozilla</a></li>
+                                </ul>
+                            </li>                
+                            <li>
+							<img src="images/icons/d3.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/d3" class="bold">d3</a></li>
+                                    <li><a href="http://d3js.org">d3js.org</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Fort Awesome.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/FortAwesome/Font-Awesome" class="bold">Font-Awesome</a></li>
+                                    <li><a href="http://fontawesome.io">fontawesome.io</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <img src="images/icons/Atom.png" width="100" height="100" alt="" class="avatar"/>
+                                <ul>
+                                    <li><a href="https://github.com/atom/atom" class="bold">Atom</a></li>
+                                    <li><a href="https://atom.io">atom.io</a></li>
+                                </ul>
+                            </li>  
+							</ul><!-- End .mini-list -->
+                    </div><!-- End .sidebar-module -->                                        
+                </div>
+                <div id="sidebar-tab-4" class="tab-pane">
+                
+                    <!-- ********** -->
+                    <!-- NEW MODULE -->
+                    <!-- ********** -->
+	                        
+                    <div class="sidebar-module"> 
+                        <div class="sidebar-todo">
+                            <div class="sidebar-todo-day">
+                                <h5>Hari ini</h5>
+                                <ul>
+                                    <li>
+                                        <label class="line-through">Memulai proyek X<input type="checkbox" name="" checked/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Bayar tagihan bulanan<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Ujicoba mobile emulator<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Update blog<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                </ul>
+                            </div><!-- End .sidebar-todo-day --> 
+                            <div class="sidebar-todo-day">
+                                <h5>Besok <span class="indicator-pill">32</span></h5>
+                                <ul>
+                                    <li>
+                                        <label>Meeting tim kreatif<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Meeting dengan klien J...<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label class="line-through">Beli SSD Kingston<input type="checkbox" name="" checked/><span></span></label>
+                                    </li>
+                                </ul>
+                            </div><!-- End .sidebar-todo-day --> 
+                            <div class="sidebar-todo-day">
+                                <h5>Minggu Depan</h5>
+                                <ul>
+                                    <li>
+                                        <label>Memulai proyek T<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Beli headphone baru<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Upgrade Windows 8.1<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                    <li>
+                                        <label>Konser SNSD<input type="checkbox" name=""/><span></span></label>
+                                    </li>
+                                </ul>
+                            </div><!-- End .sidebar-todo-day --> 
+                        </div><!-- End .sidebar-todo -->
+                    </div><!-- End .sidebar-module -->               
+                </div>
+            </div><!-- End .tab-content --> 
+            
+        </div><!-- End #sidebar-sec -->          
+                 
+        <div id="main" class="clearfix">
+        
+        <!-- ******************************************** 
+             * MAIN HEADER:                             *
+             *                                          *  
+             * the part which contains the breadcrumbs, *
+             * dropdown menus, toggle sidebar button    *
+             ******************************************** -->
 
-.drop:nth-child(9) {
-  animation-delay: -1130ms;
-}
+			<header id="header-main">
+            	<div class="header-main-top">
+                	<div class="pull-left">
+                    
+                    	<!-- * This is the responsive logo * --> 
+                                   
+                    	<a href="../" id="logo-small"><h4>IDWEBDesigner</h4><h5>/ Yogyakarta, ID</h5></a>
+                    </div>
+                    <div class="pull-right">
+                        
+                    	<!-- * This is the trigger that will show/hide the menu * -->
+                        <!-- * if the layout is in responsive mode              * -->
+                        
+						<a href="#" id="responsive-menu-trigger">
+                        	<i class="fa fa-bars"></i>
+                        </a>
+                    </div>
+                </div><!-- End #header-main-top --> 
+                <div class="header-main-bottom">
+                	<div class="pull-left">
+                    	<ul class="breadcrumb">
+                            <li><a href="../">Beranda</a></li>
+                            <li><a href="../">IDWEBDesigner Yogyakarta</a></li>
+                            <li class="active">Indeks</li>
+                        </ul><!-- End .breadcrumb -->
+                    </div> 
+                </div><!-- End #header-main-bottom -->            
+            </header><!-- End #header-main --> 
+        
+            <div id="content" class="clearfix">
 
-.drop:nth-child(10) {
-  animation-delay: -1300ms;
-}
+            <!-- ********************************************
+                 * HEADER SEC:                              *
+                 *                                          *   
+                 * the part which contains the page title,  *
+                 * buttons and dropdowns.                   *
+                 ******************************************** -->
+                
+                <header id="header-sec"> 
+                	<div class="inner-padding"> 
+                        <div class="pull-left">
+                            <h2>
+                                IDWEBDesigner Yogyakarta
+                            </h2>
+                        </div>
+                        <div class="pull-left hidden-xs hidden-sm hidden-md">
+                            <h2>:&nbsp;Next Innovation Graphics + Responsive Web</h2>
+                        </div>
+                        <div class="pull-right">
+                            <div class="dropdown hidden-xs hidden-sm hidden-md">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Register <i class="fa fa-file-text"></i>
+                                </a>
+                                <div role="menu" class="dropdown-menu pull-right ext-dropdown-comments">
+                                    <div class="ext-dropdown-header">
+                                        <i class="fa fa-file-text"></i>
+                                        <h5>Create Account</h5>
+                                    </div>
+                                    <div class="ext-dropdown-inbox-content">
+                                        <div>
+                                            <ul class="nav">
+                                                <header id="login-header">
+                                                        <h2>IDWEBDesigner</h2>
+                                                        <h5>/ Yogyakarta, ID</h5>
+                                                </header>
+                                                <div class="spacer-40"></div>
+                                                <form id="form-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <label for="fc-id-1">Email Address:</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <input class="form-control" type="text" placeholder="Enter your email address" id="fc-id-1" tabindex="1" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <label for="fc-id-2">Password:</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <input class="form-control" type="password" placeholder="Capslock sensitive" id="fc-id-2" tabindex="2" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="pull-left">
+                                                                <label><input type="checkbox" tabindex="3" /><span></span> Terms of use</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <a href="#" class="btn btn-block btn-success" tabindex="6">Sign up, it's FREE!</a>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="ext-dropdown-footer">
+                                        <p>IDWEBDesigner Yogyakarta</p>
+                                    </div>
+                                </div>
+                            </div><!-- End .dropdown -->
+                            <div class="btn-group hidden-xs hidden-sm hidden-md">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    Sign in <i class="fa fa-sign-in"></i>
+                                </a>
+                                <div role="menu" class="dropdown-menu pull-right ext-dropdown-inbox">
+                                    <div class="ext-dropdown-header">
+                                        <h5>Sign in</h5>
+                                        <a href="#" class="btn btn-default btn-sm delete-master"><i class="fa fa-sign-in"></i></a>
+                                        <span class="indicator-dot">3</span>
+                                    </div>
+                                    <div class="ext-dropdown-inbox-content">
+                                        <div>
+                                            <ul class="nav">
+                                                <header id="login-header">
+                                                        <h2>IDWEBDesigner</h2>
+                                                        <h5>/ Yogyakarta, ID</h5>
+                                                </header>
+                                                <div class="spacer-40"></div>
+                                                <form id="form-login">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <label for="fc-id-1">Username:</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <input class="form-control" type="text" placeholder="Enter your emailaddress" id="fc-id-1" tabindex="1" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <label for="fc-id-2">Password:</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <input class="form-control" type="password" placeholder="Capslock sensitive" id="fc-id-2" tabindex="2" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <div class="pull-left">
+                                                                <label><input type="checkbox" tabindex="3" /><span></span> Remember?</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-15"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <!-- just for the demo....replace this with an form element -->
+                                                            <a href="index.html" class="btn btn-default form-control" id="fake-submit" tabindex="4">Sign in here</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-40"></div>
+                                                    <div class="or-line"><span>OR</span></div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <a href="#" class="btn btn-block brand-facebook" tabindex="5">Login with Facebook</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+                                                            <a href="#" class="btn btn-block brand-twitter" tabindex="6">Login with Twitter</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="spacer-10"></div>
+                                                </form>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="ext-dropdown-footer">
+                                        <p>IDWEWBDesigner Yogyakarta</p>
+                                    </div>
+                                </div>
+                            </div><!-- End .dropdown -->
+                        </div>
+                    </div><!-- End .inner-padding -->    
+            	</header><!-- End #header-sec --> 
 
-@keyframes drop {
-  50% {
-    height: 45px;
-    opacity: 0;
-  }
-  51% {
-    opacity: 0;
-  }
-  100% {
-    height: 1px;
-    opacity: 0;
-  }
-}
-.text {
-  font-family: Helvetica, 'Helvetica Neue', sans-serif;
-  letter-spacing: 1px;
-  text-align: center;
-  margin-left: -43px;
-  font-weight: bold;
-  margin-top: 20px;
-  font-size: 11px;
-  color: #a0a0a0;
-  width: 200px;
-}
+                <!-- ********************************************
+                     * WINDOW:                                  *
+                     *                                          *
+                     * the part which contains the main content *
+                     ******************************************** -->
+                                     
+                <div class="window">  
+                    <div class="actionbar">
+                        <div class="pull-left">
+                            <a href="#" class="btn small-toggle-btn"></a> 
+                            <a href="#" id="lockscreen-slider-trigger" class="btn">
+                                <i class="fa fa-lock"></i>&nbsp;  Terkunci
+                            </a>  
+                            <div class="dropdown">
+                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="images/icons/flags/shiny/16/Indonesia.png" alt=""/>
+                                    <i class="fa fa-caret-down"></i>
+                                </a>
+                                <ul role="menu" class="dropdown-menu ext-flags">
+                                    <li>
+                                        <a href="#">Indonesia <img src="images/icons/flags/shiny/16/Indonesia.png" alt=""/></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">English <img src="images/icons/flags/shiny/16/United-Kingdom.png" alt=""/></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">German <img src="images/icons/flags/shiny/16/Germany.png" alt=""/></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">French <img src="images/icons/flags/shiny/16/France.png" alt=""/></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Chinees <img src="images/icons/flags/shiny/16/China.png" alt=""/></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <p>Let's get creative!</p>
+                        </div> 
+                        <div class="pull-right">
+                            <a href="#" class="btn small-toggle-btn"></a>  
+                        </div>    
+                    </div><!-- End .actionbar-->
+                    <div class="row ext-raster">
+                    	<div class="col-sm-8">
+                            <div class="row ext-raster">
 
-    </style>
 
+                            </div><!-- End .row -->
+                            <div class="row">
+                            	<div class="col-sm-12">
+
+                                    <div class="inner-padding">
+
+                                        <div class="subheading">
+                                            <h3></i>Latest IDWEBDesigner Project</h3>
+                                        </div>
+
+                                        <div class="subheading">
+
+
+                                            <img src="images/f17c.png" width="100%">
+                                            <div class="spacer-30"></div>
+                                            <img src="images/f16b.png" width="100%">
+
+                                
+
+
+                                        </div>
+
+         								<div class="row">
+                                
+                                            <!-- Start grid -->
+                                            
+                                            <section class="col-sm-12">
+                                                                                
+                                                <!-- New widget -->
+
+
+
+
+                                            </section>
+                                        </div>
+                                        
+                                        <div class="spacer-40"></div>
+
+
+                                    </div><!-- End .inner-padding -->  
+                                </div>
+                            </div><!-- End .row -->
+                        </div>
+                        <span class="breakpoint-sm ext-raster-line-8"></span>
+                        <div class="col-sm-4 hidden-xs">
+                            <ul class="ext-tabs tabs-negative-position">
+                                <li class="active">
+                                    <a href="#content-tab-10">GitHub</a>
+                                </li>
+                                <li>
+                                    <a href="#content-tab-11">New repository</a>
+                                </li>
+                            </ul><!-- End .ext-tabs -->
+                            <div class="tab-content">
+                                <div id="content-tab-10" class="tab-pane active">
+                                    <div class="inner-padding">
+                                        <div class="subheading">
+                                            <h3></i>Featured Project</h3>
+                                            <div class="btn-group pull-right">
+                                                <a href="https://github.com/idwebdesigner" class="btn btn-default btn-sm tooltip-top" title="Fork" id="as-min-trigger">
+                                                    <i class="fa fa-code-fork"></i>
+                                                </a>
+                                                <a href="https://github.com/idwebdesigner" class="btn btn-default btn-sm tooltip-top" title="Public activity" id="as-plus-trigger">
+                                                    <i class="fa fa-rss"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="activity-stream">
+
+                                            <div class="activity-stream-item">
+                                                <img src="images/f15b.png" width="100%">
+                                            </div>
+
+                                        </div><!-- End .activity-stream -->
+                                    </div><!-- End .inner-padding -->
+                                    <!-- Lockscreen -->
+                                    <div class="lockscreen" id="lockscreen-target">
+                                        <div class="lockscreen-overlay"></div>
+                                        <div class="lockscreen-modal">
+                                            <div class="lockscreen-placeholder"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="content-tab-11" class="tab-pane">
+                                    <div class="inner-padding">
+                                        <div class="subheading">
+                                            <h3>Buat Proyek Baru</h3>
+                                        </div>
+                                        <form>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-0">Nama Proyek: <span class="asterisk">*</span></label>
+                                                    <input type="text" class="form-control" placeholder="projectX" id="ff-0" />
+                                                </div>
+                                            </div>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-1">URL proyek:</label>
+                                                    <div class="input-group">
+                                                        <input class="form-control" type="text" placeholder="direktori" id="ff-1" />
+                                                        <span class="input-group-addon">.designer.web.id</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-2">Label (pisahkan dengan koma):</label>
+                                                    <input type="text" class="form-control input-lg" placeholder="Label" id="ff-2" />
+                                                    <div class="helper-text-box">
+                                                        <p>
+                                                            Contoh: html5, prototip, mobile.
+                                                        </p>
+                                                    </div><!-- End .helper-text-box -->
+                                                </div>
+                                            </div>
+                                            <div class="spacer-10"></div>
+                                            <fieldset>
+                                                <legend>Checkbox</legend>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <div class="stacked-labels">
+                                                            <label><input type="checkbox" name="tags" value="html5" /><span></span> HTML5</label>
+                                                            <label><input type="checkbox" name="tags" value="css3" /><span></span> CSS3</label>
+                                                            <label><input type="checkbox" name="tags" value="css3" /><span></span> Javascript</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="stacked-labels">
+                                                            <label><input type="checkbox" name="tags" value="html5" /><span></span> Database</label>
+                                                            <label><input type="checkbox" name="tags" value="css3" /><span></span> WebGL</label>
+                                                            <label><input type="checkbox" name="tags" value="css3" /><span></span> Other</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </fieldset>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-2">Apakah Responsif dan dukungan mobile?</label>
+                                                    <select name="client" required class="form-control simpleselect">
+                                                        <option value="">-- Pilih Opsi --</option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-2">Who can see and commit repository</label>
+                                                    <div class="inline-labels">
+                                                        <label><input type="radio" name="gender" value="male" checked /><span></span> Public</label>
+                                                        <label><input type="radio" name="gender" value="female" /><span></span> Private</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label for="ff-2">Deskripi:</label>
+                                                    <textarea class="form-control" placeholder="deskripsi"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="spacer-20"></div>
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label><input type="checkbox" /><span></span> Terima persyaratan?</label>
+                                                    <button class="btn btn-default pull-right" type="submit">Kirim</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div><!-- End .inner-padding -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <span class="ext-raster-line-bottom"></span>
+                    </div>
+      				<div class="inner-padding">
+                        <div class="row"> 
+                            <div class="col-sm-12">
+
+	    	<div class="galleryItem">
+	    		<a href="http://ekspedisicandi.com"><img src="images/ekspedisicandi.jpg" alt="" />
+                <div class="spacer-10"></div><h4>Ekspsedisi Candi</h4><div class="spacer-10"></div>
+	    		<p>ekspedisicandi.com</p></a>
+	    	</div>
+            
+	    	<div class="galleryItem">
+	    		<a href="http://cuaca.yogyakarta.designer.web.id"><img src="images/cuaca.jpg" alt="" />
+	    		<div class="spacer-10"></div><h4>Yogyakarta Forecast</h4><div class="spacer-10"></div>
+	    		<p>cuaca.yogyakarta.designer.web.id</p></a>
+	    	</div>
+	    	
+	    	<div class="galleryItem">
+	    		<a href="http://coreldraw.designer.web.id/"><img src="images/coreldraw.jpg" alt="" />
+	    		<div class="spacer-10"></div><h4>CorelDraw X7 Indonesia</h4><div class="spacer-10"></div>
+	    		<p>coreldraw.designer.web.id</p></a>
+	    	</div>
+	    	
+	    	<div class="galleryItem">
+	    		<a href="http://2015.designer.web.id"><img src="images/2015.jpg" alt="" />
+	    		<div class="spacer-10"></div><h4>Showcase Calendar 2015</h4><div class="spacer-10"></div>
+	    		<p>2015.designer.web.id</p></a>
+	    	</div>
+
+            <div class="galleryItem">
+	    		<a href="http://githubpreview.designer.web.id"><img src="images/githubpreview.jpg" alt="" />
+	    		<div class="spacer-10"></div><h4>Repository Preview</h4><div class="spacer-10"></div>
+	    		<p>githubpreview.designer.web.id</p></a>
+	    	</div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- End .window -->
+                
+                <!-- ********************************************
+                     * FOOTER MAIN:                             *
+                     *                                          *
+                     * the part which contains things like      * 
+                     * chat, buttons, copyright and             *
+                     * dropup menu(s).                          *
+                     ******************************************** -->
+                    
+                <footer id="footer-main" class="footer-sticky">
+                    <div class="footer-main-inner">
+                        <div class="pull-left">
+                            <p>Copyright © 2015 IDWEWBDesigner Yogyakarta</p>
+                        </div>
+                        <div class="pull-right">
+                            <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                                <i class="fa fa-cogs"></i>
+                            </a>                            
+                            <div class="dropup" id="ext-dropdown-chat">
+                                <a class="btn dropdown-toggle ext-dropdown-chat-btn" data-toggle="dropdown" href="#">
+                                    <span class="online-dot"></span>
+                                    IDWEBDesigner
+                                    <i class="fa fa-comments chat-blink-icon"></i>
+                                </a>                  
+                                <div class="ext-dropdown-chat dropdown-menu pull-right">
+                                    <div class="ext-dropdown-chat-inner">
+                                        <div class="ext-dropdown-header">
+                                            <i class="fa fa-comments"></i>
+                                            <h5>Pesan langsung</h5>
+                                            <a href="#" class="btn btn-default btn-sm ext-dropdown-chat-info-toggle">
+                                                <i class="fa fa-info-circle"></i>
+                                            </a>                            
+                                        </div>
+                                        <div class="ext-dropdown-chat-window scrollbar-y">
+                                            <script type="text/javascript" src="//www4.smartchatbox.com/shoutbox/start.php?key=544220226"></script>                   
+                                        </div>
+                                        <div class="ext-dropdown-chat-editor">
+                                            support@designer.web.id
+                                        </div>
+                                        <div class="ext-dropdown-chat-info">
+                                            <h5>IDWEBDesigner Yogyakarta</h5>
+                                            <div class="spacer-15"></div>
+                                            <p>Jl. Wahid Hasyim No. 3 Gaten, Condongcatur, Depok, Sleman, Yogyakarta 55283<br/><br/>Contact Supports<br/>Phone / Whatsapp: 081392541831<br/>Email: support@designer.web.id</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- End .dropup -->              
+                            <a href="#" class="btn" id="toggle-footer">
+                                <i class="fa fa-chevron-down"></i>
+                            </a>
+                        </div> 
+                    </div><!-- End .footer-main-inner -->   
+                </footer><!-- End #footer-main -->  
+            </div><!-- End #content -->  
+    	</div><!-- End #main --> 
+    </div><!-- End #container --> 
     
-        <script src="js/prefixfree.min.js"></script>
 
+     
+
+
+    <!-- // Helpers // -->
     
-  </head>
-
-  <body>
-
-    <div class="preloader" style="opacity: 1; ">
-  <svg version="1.1" id="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve" style="opacity: 1; margin-left: 0px; margin-top: 0px;">
-    <g>
-      <path fill="none" d="M6.942,3.876c-0.4-0.692-1.146-1.123-1.946-1.123c-0.392,0-0.779,0.104-1.121,0.301c-1.072,0.619-1.44,1.994-0.821,3.067C3.454,6.815,4.2,7.245,5,7.245c0.392,0,0.779-0.104,1.121-0.301C6.64,6.644,7.013,6.159,7.167,5.581C7.321,5,7.243,4.396,6.942,3.876z M6.88,5.505C6.745,6.007,6.423,6.427,5.973,6.688C5.676,6.858,5.34,6.948,5,6.948c-0.695,0-1.343-0.373-1.69-0.975C2.774,5.043,3.093,3.849,4.024,3.312C4.32,3.14,4.656,3.05,4.996,3.05c0.695,0,1.342,0.374,1.69,0.975C6.946,4.476,7.015,5,6.88,5.505z"></path>
-      <path fill="none" d="M8.759,2.828C8.718,2.757,8.626,2.732,8.556,2.774L7.345,3.473c-0.07,0.041-0.094,0.132-0.053,0.202C7.319,3.723,7.368,3.75,7.419,3.75c0.025,0,0.053-0.007,0.074-0.02l1.211-0.699C8.774,2.989,8.8,2.899,8.759,2.828z"></path>
-      <path fill="none" d="M1.238,7.171c0.027,0.047,0.077,0.074,0.128,0.074c0.025,0,0.051-0.008,0.074-0.02l1.211-0.699c0.071-0.041,0.095-0.133,0.054-0.203S2.574,6.228,2.503,6.269l-1.21,0.699C1.221,7.009,1.197,7.101,1.238,7.171z"></path>
-      <path fill="none" d="M6.396,2.726c0.052,0,0.102-0.026,0.13-0.075l0.349-0.605C6.915,1.976,6.89,1.885,6.819,1.844c-0.07-0.042-0.162-0.017-0.202,0.054L6.269,2.503C6.228,2.574,6.251,2.666,6.322,2.706C6.346,2.719,6.371,2.726,6.396,2.726z"></path>
-		  <path fill="none" d="M3.472,7.347L3.123,7.952c-0.041,0.07-0.017,0.162,0.054,0.203C3.2,8.169,3.226,8.175,3.25,8.175c0.052,0,0.102-0.027,0.129-0.074l0.349-0.605c0.041-0.07,0.017-0.16-0.054-0.203C3.603,7.251,3.513,7.276,3.472,7.347z"></path>
-		  <path fill="none" d="M3.601,2.726c0.025,0,0.051-0.007,0.074-0.02C3.746,2.666,3.77,2.574,3.729,2.503l-0.35-0.604C3.338,1.828,3.248,1.804,3.177,1.844C3.106,1.886,3.082,1.976,3.123,2.047l0.35,0.604C3.5,2.7,3.549,2.726,3.601,2.726z"></path>
-		  <path fill="none" d="M6.321,7.292c-0.07,0.043-0.094,0.133-0.054,0.203l0.351,0.605c0.026,0.047,0.076,0.074,0.127,0.074c0.025,0,0.051-0.006,0.074-0.02c0.072-0.041,0.096-0.133,0.055-0.203l-0.35-0.605C6.483,7.276,6.393,7.253,6.321,7.292z"></path>
-		  <path fill="none" d="M2.202,5.146c0.082,0,0.149-0.065,0.149-0.147S2.284,4.851,2.202,4.851H1.503c-0.082,0-0.148,0.066-0.148,0.148s0.066,0.147,0.148,0.147H2.202z"></path>
-		  <path fill="none" d="M8.493,4.851H7.794c-0.082,0-0.148,0.066-0.148,0.148s0.066,0.147,0.148,0.147l0,0h0.699c0.082,0,0.148-0.065,0.148-0.147S8.575,4.851,8.493,4.851L8.493,4.851z"></path>
-		  <path fill="none" d="M5.146,2.203V0.805c0-0.082-0.066-0.148-0.148-0.148c-0.082,0-0.148,0.066-0.148,0.148v1.398c0,0.082,0.066,0.149,0.148,0.149C5.08,2.352,5.146,2.285,5.146,2.203z"></path>
-		  <path fill="none" d="M4.85,7.796v1.396c0,0.082,0.066,0.15,0.148,0.15c0.082,0,0.148-0.068,0.148-0.15V7.796c0-0.082-0.066-0.148-0.148-0.148C4.917,7.647,4.85,7.714,4.85,7.796z"></path>
-		  <path fill="none" d="M2.651,3.473L1.44,2.774C1.369,2.732,1.279,2.757,1.238,2.828C1.197,2.899,1.221,2.989,1.292,3.031l1.21,0.699c0.023,0.013,0.049,0.02,0.074,0.02c0.051,0,0.101-0.026,0.129-0.075C2.747,3.604,2.722,3.514,2.651,3.473z"></path>
-		  <path fill="none" d="M8.704,6.968L7.493,6.269c-0.07-0.041-0.162-0.016-0.201,0.055c-0.041,0.07-0.018,0.162,0.053,0.203l1.211,0.699c0.023,0.012,0.049,0.02,0.074,0.02c0.051,0,0.102-0.027,0.129-0.074C8.8,7.101,8.776,7.009,8.704,6.968z"></path>
-	  </g>
-  </svg>
-
-  <svg version="1.1" id="cloud" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="10px" viewBox="0 0 10 10" enable-background="new 0 0 10 10" xml:space="preserve">
-    <path fill="none" d="M8.528,5.624H8.247c-0.085,0-0.156-0.068-0.156-0.154c0-0.694-0.563-1.257-1.257-1.257c-0.098,0-0.197,0.013-0.3,0.038C6.493,4.259,6.45,4.252,6.415,4.229C6.38,4.208,6.356,4.172,6.348,4.131C6.117,3.032,5.135,2.235,4.01,2.235c-1.252,0-2.297,0.979-2.379,2.23c-0.004,0.056-0.039,0.108-0.093,0.13C1.076,4.793,0.776,5.249,0.776,5.752c0,0.693,0.564,1.257,1.257,1.257h6.495c0.383,0,0.695-0.31,0.695-0.692S8.911,5.624,8.528,5.624z"></path>
-  </svg>
-
-  <div class="rain">
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-    <span class="drop"></span>
-  </div>
-  
-  <div class="text">
-    Under Construction<br/>
-      go to <a href="http://designer.web.id/dashboard">dashboard</a>
-  </div>
-</div>
+    <script src="js/plugins/modernizr.min.js"></script> 
+    <script src="js/plugins/mobiledevices.js"></script>
     
-        <script src="js/index.js"></script>
+    <!-- // jQuery core // -->
+    
+    <script src="js/libs/jquery-1.11.0.min.js"></script>
+    <script src="js/libs/jquery-ui-1.10.4.min.js"></script>
+    
+    <!-- // Bootstrap // -->
+    
+    <script src="bootstrap/core/dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap/select2/select2.min.js"></script>
+	<script src="bootstrap/bootboxjs/bootboxjs.min.js"></script>
+    <script src="bootstrap/holder/holder.min.js"></script>
+    <script src="bootstrap/typeahead/typeahead.min.js"></script>
+	<script src="bootstrap/datepicker/js/bootstrap-datepicker.min.js"></script>
+	<script src="bootstrap/fileupload/bootstrap-fileupload.min.js"></script>
+	<script src="bootstrap/inputmask/bootstrap-inputmask.min.js"></script>
+    <script src="bootstrap/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+    <script src="bootstrap/timepicker/js/bootstrap-timepicker.min.js"></script>
+    
+    <!-- // Custom/premium plugins // -->
+    
+    <script src="js/plugins/responsivetables.1.0.min.js"></script> 
+    <script src="js/plugins/responsivehelper.1.0.min.js"></script>  
+    <script src="js/plugins/mainmenu.1.0.min.js"></script>
+    <script src="js/plugins/easyfiletree.1.0.min.js"></script> 
+  	<script src="js/plugins/autosaveforms.1.0.min.js"></script> 
+    <script src="js/plugins/chainedinputs.1.0.min.js"></script>
+	<script src="js/plugins/checkboxtoggle.1.0.min.js"></script> 
+    <script src="js/plugins/bootstraptabsextend.1.0.min.js"></script>
+    <script src="js/plugins/lockscreen.1.0.min.js"></script>
+    <script src="js/plugins/autoexpand.1.0.min.js"></script>
+    <script src="js/plugins/notify.1.0.min.js"></script>
+ 	<script src="js/plugins/nanogress.1.0.min.js"></script>
+    <script src="js/plugins/powerwizard.1.0.min.js"></script>
+    <script src="js/plugins/simpleselect.1.0.min.js"></script>
+    <script src="js/plugins/tinycontextmenu.1.0.min.js"></script>
+      
+    <!-- // Third-party plugins // -->
+    
+    <script src="js/plugins/tinyscrollbar.min.js"></script>  
+    <script src="js/plugins/jquery.knob.js"></script> 
+    <script src="js/plugins/prism.min.js"></script>            
+    <script src="js/plugins/h5f.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
+    <script src="js/plugins/gmap3.min.js"></script>
+    <script src="js/plugins/jquery.tablesorter.min.js"></script>
+    <script src="js/plugins/jquery.tablesorter.widgets.min.js"></script>
+    <script src="js/plugins/jquery.tablesorter.pager.min.js"></script>
+    <script src="js/plugins/fullcalendar.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="js/plugins/hogan-2.0.0.js"></script>
+    <script src="js/plugins/jquery.nouislider.min.js"></script>
+    <script src="js/plugins/jquery.autosize-min.js"></script>
+    <script src="js/plugins/jquery.magnific-popup.min.js"></script>
+    <script src="js/plugins/jquery.pwstrength.min.js"></script>
+    <script src="js/plugins/jquery.mixitup.min.js"></script>
+    <script src="js/plugins/jquery.vticker.min.js"></script>
+    <script src="js/flot/jquery.flot.min.js"></script>
+    <script src="js/flot/jquery.flot.resize.min.js"></script>
+    <script src="js/flot/excanvas.min.js"></script>
+    <script src="js/plugins/layout.min.js"></script>
+    <script src="js/plugins/masonry.pkgd.min.js"></script>
+    <script src="js/plugins/json2.js"></script>
+    <script src="js/countup/jquery.countTo.js"></script>
+    <script src="js/countup/moment.min.js"></script>
+    <script src="js/clock/js/script.js"></script>
 
+    <!-- // Custom //-->
     
-    
-    
-  </body>
+    <script src="js/plugins/theme-demo.min.js"></script>    
+    <script type="text/javascript" defer="defer" src="https://mylivechat.com/chatinline.aspx?hccid=52799426"></script>
+
+</body>
 </html>
