@@ -10208,7 +10208,7 @@ TL.StorySlider = TL.Class.extend({
 		if (TL.Browser.touch) {
 			//this._el.slider_touch_mask = TL.Dom.create('div', 'tl-slider-touch-mask', this._el.slider_container_mask);
 			this._swipable = new TL.Swipable(this._el.slider_container_mask, this._el.slider_container, {
-				enable: {x:true, y:false},
+				enable: {x:false, y:false},
 				snap: 	false
 			});
 			this._swipable.enable();
