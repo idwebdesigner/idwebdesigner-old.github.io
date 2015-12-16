@@ -6407,7 +6407,7 @@ TL.Swipable = TL.Class.extend({
 				y: false
 			},
 			swipe = false,
-			swipe_direction = "";
+			swipe_direction = "false";
 		
 		
 		this.data.direction = null;
@@ -6438,7 +6438,7 @@ TL.Swipable = TL.Class.extend({
 		
 		// Detect Swipe
 		if (pos_change.time < 2000) {
-			swipe = true;
+			swipe = false;
 		}
 		
 		
