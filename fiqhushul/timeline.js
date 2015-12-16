@@ -3874,7 +3874,7 @@ TL.Language.languages = {
       loading_content:                "Loading Content",
       expand_timeline:                "Expand Timeline",
       loading_timeline:               "Loading Timeline... ",
-      swipe_to_navigate:              "Swipe to Navigate<br><span class='tl-button'>OK</span>",
+      swipe_to_navigate:              "Selamat datang di fiqhushul.blogspot.co.id<br>Swipe to Navigate",
       unknown_read_err:               "An unexpected error occurred trying to read your spreadsheet data",
       network_err:                    "Unable to read your Google Spreadsheet. Make sure you have published it to the web.",
       empty_feed_err:                 "No data entries found",
@@ -10218,7 +10218,7 @@ TL.StorySlider = TL.Class.extend({
 				message_class: 		"tl-message-full",
 				message_icon_class: "tl-icon-swipe-left"
 			});
-			this._message.updateMessage(this._(""));
+			this._message.updateMessage(this._("swipe_to_navigate"));
 			this._message.addTo(this._el.container);
 		}
 
