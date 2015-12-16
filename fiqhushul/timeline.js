@@ -10991,7 +10991,7 @@ TL.TimeNav = TL.Class.extend({
 
 
 		// Knight Lab Logo
-		this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'><span class='tl-knightlab-logo'></span>Timelineku</a>"
+		this._el.attribution.innerHTML = "<a href='http://timeline.knightlab.com' target='_blank'></a>"
 
 		// Time Axis
 		this.timeaxis = new TL.TimeAxis(this._el.timeaxis, this.options);
