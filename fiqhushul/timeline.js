@@ -6407,7 +6407,7 @@ TL.Swipable = TL.Class.extend({
 				y: false
 			},
 			swipe = false,
-			swipe_direction = "false";
+			swipe_direction = "";
 		
 		
 		this.data.direction = null;
@@ -6444,17 +6444,17 @@ TL.Swipable = TL.Class.extend({
 		
 		if (this.options.enable.x && this.options.enable.y) {
 			if (Math.abs(pos_change.x) > Math.abs(pos_change.y)) {
-				swipe_detect.x = true;
+				swipe_detect.x = false;
 			} else {
-				swipe_detect.y = true;
+				swipe_detect.y = false;
 			}
 		} else if (this.options.enable.x) {
 			if (Math.abs(pos_change.x) > Math.abs(pos_change.y)) {
-				swipe_detect.x = true;
+				swipe_detect.x = false;
 			}
 		} else {
 			if (Math.abs(pos_change.y) > Math.abs(pos_change.x)) {
-				swipe_detect.y = true;
+				swipe_detect.y = false;
 			}
 		}
 		
@@ -6463,7 +6463,7 @@ TL.Swipable = TL.Class.extend({
 			
 			// Long Swipe
 			if (Math.abs(pos_change.x) > (this._el.drag.offsetWidth/2)) {
-				swipe = true;
+				swipe = false;
 			}
 			
 			if (Math.abs(pos_change.x) > 10000) {
@@ -6478,7 +6478,7 @@ TL.Swipable = TL.Class.extend({
 			
 			// Long Swipe
 			if (Math.abs(pos_change.y) > (this._el.drag.offsetHeight/2)) {
-				swipe = true;
+				swipe = false;
 			}
 			
 			if (Math.abs(pos_change.y) > 10000) {
