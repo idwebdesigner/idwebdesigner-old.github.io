@@ -6438,23 +6438,23 @@ TL.Swipable = TL.Class.extend({
 		
 		// Detect Swipe
 		if (pos_change.time < 2000) {
-			swipe = false;
+			swipe = true;
 		}
 		
 		
 		if (this.options.enable.x && this.options.enable.y) {
 			if (Math.abs(pos_change.x) > Math.abs(pos_change.y)) {
-				swipe_detect.x = false;
+				swipe_detect.x = true;
 			} else {
-				swipe_detect.y = false;
+				swipe_detect.y = true;
 			}
 		} else if (this.options.enable.x) {
 			if (Math.abs(pos_change.x) > Math.abs(pos_change.y)) {
-				swipe_detect.x = false;
+				swipe_detect.x = true;
 			}
 		} else {
 			if (Math.abs(pos_change.y) > Math.abs(pos_change.x)) {
-				swipe_detect.y = false;
+				swipe_detect.y = true;
 			}
 		}
 		
@@ -6463,7 +6463,7 @@ TL.Swipable = TL.Class.extend({
 			
 			// Long Swipe
 			if (Math.abs(pos_change.x) > (this._el.drag.offsetWidth/2)) {
-				swipe = false;
+				swipe = true;
 			}
 			
 			if (Math.abs(pos_change.x) > 10000) {
@@ -6478,7 +6478,7 @@ TL.Swipable = TL.Class.extend({
 			
 			// Long Swipe
 			if (Math.abs(pos_change.y) > (this._el.drag.offsetHeight/2)) {
-				swipe = false;
+				swipe = true;
 			}
 			
 			if (Math.abs(pos_change.y) > 10000) {
@@ -10209,7 +10209,7 @@ TL.StorySlider = TL.Class.extend({
 			//this._el.slider_touch_mask = TL.Dom.create('div', 'tl-slider-touch-mask', this._el.slider_container_mask);
 			this._swipable = new TL.Swipable(this._el.slider_container_mask, this._el.slider_container, {
 				enable: {x:true, y:false},
-				snap: 	true
+				snap: 	false
 			});
 			this._swipable.enable();
 
