@@ -6089,7 +6089,7 @@ TL.Draggable = TL.Class.extend({
 		
 		// Detect Swipe
 		if (pos_change.time < 3000) {
-			swipe = true;
+			swipe = false;
 		}
 		
 		// Detect Direction
